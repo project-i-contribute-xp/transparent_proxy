@@ -1,2 +1,5 @@
-# transparent_proxy
-build a transparent proxy across platform
+# 构建一个可以在主要的桌面平台（linux, windows, mac os)运行的透明代理服务
+由于shadowsocksr的作者关闭了原始的仓库，在三个平台上找到都可以用的shadowsocksr客户端并不容易。
+加上内核的限制，ss-redir并不支持mac os（windows情况不明），想要在除了linux的平台上搭建透明代理也有相当难度。
+借助docker技术，我们可以统一三大平台的编译和运行环境，只需要做很少的平台相关实现（主要涉及iptable），就可以实现一个跨平台的透明代理。
+不论是自用还是给其他朋友提供帮助，这样一个脚本集合都很有价值。
