@@ -6,3 +6,15 @@
 借助docker技术，我们可以统一三大平台的编译和运行环境，只需要做很少的平台相关实现（主要涉及iptable），就可以实现一个跨平台的透明代理。
 
 不论是自用还是给其他朋友提供帮助，这样一个脚本集合都很有价值。
+
+## 目前状态
+* 自动安装docker脚本
+** (done）linux（ubuntu）
+* (done)shadowsocks客户端构建 (build_shadowsocks.sh)
+* (done)ss-local运行逻辑 (startup_shadowsocks.sh)
+* ss-redir启动逻辑
+* 系统iptable修改逻辑
+* 通过代理转发dns请求
+* 中国和外国ip走不同的路由
+* 中国域名和国外域名使用不同的dns服务器解析
+* 负载均衡
