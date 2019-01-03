@@ -19,5 +19,11 @@
 * 中国域名和国外域名使用不同的dns服务器解析
 * 负载均衡
 
+## mac上的路由表修改
+目前版本的macOS使用了源自BSD的pf机制管理路由表，相关资料如下：
+
+* https://www.unix.com/man-page/freebsd/5/pf.conf/
+* https://www.openbsd.org/faq/pf/
+
 ## 参考项目
 * https://github.com/icymind/VRouter
