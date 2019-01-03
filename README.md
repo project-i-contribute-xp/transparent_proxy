@@ -18,3 +18,6 @@
 * 中国和外国ip走不同的路由
 * 中国域名和国外域名使用不同的dns服务器解析
 * 负载均衡
+
+## 参考项目
+* https://github.com/icymind/VRouter
