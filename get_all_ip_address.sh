@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+./build_shadowsocks.sh
 rm -rf config
 mkdir config
 ./generate_config.sh ./gui-config.json

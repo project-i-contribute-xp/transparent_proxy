@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+rm -rf ./config
+mkdir config
 
 docker run --rm \
     -v "$(pwd)":/usr/python \

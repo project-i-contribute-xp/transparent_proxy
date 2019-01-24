@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build -t shadowsocksr -f Dockerfile_shadowsocksr_libev .
+docker build -t shadowsocksr -f Dockerfile_shadowsocksr_libev . 

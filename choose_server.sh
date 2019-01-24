@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ./build_shadowsocks.sh
+./build_shadowsocks.sh
 ./generate_config.sh ./gui-config.json
 
 line=0

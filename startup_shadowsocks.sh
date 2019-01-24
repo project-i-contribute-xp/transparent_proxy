@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# ./build_shadowsocks.sh
 docker stop ss-local > /dev/null
-
 docker run --rm \
     --name ss-local \
     -p 1080:1080 \
