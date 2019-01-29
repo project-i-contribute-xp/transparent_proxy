@@ -3,3 +3,4 @@ config*.json
 config.json
 gui-config.json
 get-pip.py
+Docker.dmg
