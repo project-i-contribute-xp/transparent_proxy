@@ -7,18 +7,13 @@
 
 不论是自用还是给其他朋友提供帮助，这样一个脚本集合都很有价值。
 
-## 目前状态
-- 自动安装docker脚本
-   - (done）linux（ubuntu）
-- (done)shadowsocks客户端构建 (build_shadowsocks.sh)
-- (done)ss-local运行逻辑 (startup_shadowsocks.sh)
-- 系统iptable修改逻辑
-    - (done) macOS
-- 通过代理转发dns请求
-- 中国和外国ip走不同的路由
-- 中国域名和国外域名使用不同的dns服务器解析
-- 负载均衡
-- (done)实现查找到服务器真实ip的功能(./get_all_ip_address.sh)
+## Mac使用方法
+```
+git clone https://github.com/project-i-contribute-xp/transparent_proxy.git
+cd transparent_proxy
+./install_dependence_on_mac.sh
+./enable_mac.sh
+```
 
 ## mac上的路由表修改
 目前版本的macOS使用了源自BSD的pf机制管理路由表，发现可以直接通过echo配合管道将配置信息传递给pf，类似以下的语法：
@@ -50,6 +45,19 @@ python-proxy支持将pf流量导向任意的socket的代理，这样任何实现
 我还发现rio开发了一个shadowsocks的分支版本，用go语言实现了pf转发数据的处理：
 https://github.com/riobard/go-shadowsocks2/blob/master/tcp_darwin.go
 这个方案的好处是性能可能比python好，问题是将pf转发逻辑与shadowsocks绑定在一起不够通用，如果找不到比python-proxy性能更好的方案，我考虑参照rio的实现，做一个go语言版本的pf转发处理程序。
+
+## 目前状态
+- 自动安装docker脚本
+   - (done）linux（ubuntu）
+- (done)shadowsocks客户端构建 (build_shadowsocks.sh)
+- (done)ss-local运行逻辑 (startup_shadowsocks.sh)
+- 系统iptable修改逻辑
+    - (done) macOS
+- 通过代理转发dns请求
+- 中国和外国ip走不同的路由
+- 中国域名和国外域名使用不同的dns服务器解析
+- 负载均衡
+- (done)实现查找到服务器真实ip的功能(./get_all_ip_address.sh)
 
 ## 参考资料
 - NAT(network address translation)
