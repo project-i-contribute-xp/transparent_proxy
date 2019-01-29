@@ -7,6 +7,45 @@
 
 不论是自用还是给其他朋友提供帮助，这样一个脚本集合都很有价值。
 
+## Mac使用方法
+```
+git clone https://github.com/project-i-contribute-xp/transparent_proxy.git
+cd transparent_proxy
+./install_dependence_on_mac.sh
+./enable_mac.sh
+```
+
+## mac上的路由表修改
+目前版本的macOS使用了源自BSD的pf机制管理路由表，发现可以直接通过echo配合管道将配置信息传递给pf，类似以下的语法：
+
+```
+echo "
+rdr pass on lo0 inet proto tcp from any to !127.0.0.1 -> 127.0.0.1 port 8080
+" | sudo pfctl -ef -
+```
+
+rdr指令可以将某个网卡接收到的数据转发到另外一个主机的指定端口上，但是对于从这个网卡发出的数据就不会处理。
+所以使用了一个变通的方法，首先通过route-to将en0的数据转发到lo0上，再通过rdr指令将数据转发到本地端口：
+
+```
+rdr pass on lo0 inet proto tcp from any to !127.0.0.1 -> 127.0.0.1 port 8080
+pass out on en0 route-to lo0 inet proto tcp from any to any port != 10080 keep state
+```
+
+pf相关资料如下：
+
+- https://www.unix.com/man-page/freebsd/5/pf.conf/
+- https://www.openbsd.org/faq/pf/
+
+## pf转发流量的处理
+macOS使用的bsd pf(package filter)可以将流量转发到某个端口，但是该端口接收到的数据与iptable转发的不一致，
+为iptable开发的ss-redir就不能使用了，幸运的是已经有人开发好了从pf转发数据到socket代理的转接程序：
+比如，python-proxy: https://github.com/qwj/python-proxy
+python-proxy支持将pf流量导向任意的socket的代理，这样任何实现了socket代理的协议都可以被用于透明代理，通用性更好，我们的macOS透明代理就使用了这个方案。
+我还发现rio开发了一个shadowsocks的分支版本，用go语言实现了pf转发数据的处理：
+https://github.com/riobard/go-shadowsocks2/blob/master/tcp_darwin.go
+这个方案的好处是性能可能比python好，问题是将pf转发逻辑与shadowsocks绑定在一起不够通用，如果找不到比python-proxy性能更好的方案，我考虑参照rio的实现，做一个go语言版本的pf转发处理程序。
+
 ## 目前状态
 - 自动安装docker脚本
    - (done）linux（ubuntu）
@@ -19,12 +58,6 @@
 - 中国域名和国外域名使用不同的dns服务器解析
 - 负载均衡
 - (done)实现查找到服务器真实ip的功能(./get_all_ip_address.sh)
-
-## mac上的路由表修改
-目前版本的macOS使用了源自BSD的pf机制管理路由表，相关资料如下：
-
-- https://www.unix.com/man-page/freebsd/5/pf.conf/
-- https://www.openbsd.org/faq/pf/
 
 ## 参考资料
 - NAT(network address translation)
