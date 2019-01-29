@@ -23,14 +23,19 @@
 ## mac上的路由表修改
 目前版本的macOS使用了源自BSD的pf机制管理路由表，发现可以直接通过echo配合管道将配置信息传递给pf，类似以下的语法：
 
+```
 echo "
 rdr pass on lo0 inet proto tcp from any to !127.0.0.1 -> 127.0.0.1 port 8080
 " | sudo pfctl -ef -
+```
 
 rdr指令可以将某个网卡接收到的数据转发到另外一个主机的指定端口上，但是对于从这个网卡发出的数据就不会处理。
 所以使用了一个变通的方法，首先通过route-to将en0的数据转发到lo0上，再通过rdr指令将数据转发到本地端口：
+
+```
 rdr pass on lo0 inet proto tcp from any to !127.0.0.1 -> 127.0.0.1 port 8080
 pass out on en0 route-to lo0 inet proto tcp from any to any port != 10080 keep state
+```
 
 pf相关资料如下：
 
