@@ -1,3 +1,5 @@
-/config/
+./internal/config/
+config*.json
 config.json
 gui-config.json
+get-pip.py
