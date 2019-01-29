@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-brew install curl
-./download_docker_on_mac.sh
-
 cd ./internal
+./install_docker_on_mac.sh
+./startup_docker_on_mac.sh
+
+brew install curl
 ./build_shadowsocks.sh
 ./install_pip3_on_mac.sh
 ./install_pproxy_on_mac.sh
