@@ -11,6 +11,7 @@
 ```
 git clone https://github.com/project-i-contribute-xp/transparent_proxy.git
 cd transparent_proxy
+将配置文件gui-config.json复制到internal目录下
 ./install_dependence_on_mac.sh
 ./enable_mac.sh
 ```
