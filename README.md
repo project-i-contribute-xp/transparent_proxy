@@ -12,8 +12,8 @@
    - (done）linux（ubuntu）
 - (done)shadowsocks客户端构建 (build_shadowsocks.sh)
 - (done)ss-local运行逻辑 (startup_shadowsocks.sh)
-- ss-redir启动逻辑
 - 系统iptable修改逻辑
+    - (done) macOS
 - 通过代理转发dns请求
 - 中国和外国ip走不同的路由
 - 中国域名和国外域名使用不同的dns服务器解析
