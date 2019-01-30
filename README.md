@@ -7,6 +7,11 @@
 
 不论是自用还是给其他朋友提供帮助，这样一个脚本集合都很有价值。
 
+## 各平台支持情况
+- (done) macOS
+- (todo) windows
+- (todo) linux
+
 ## Mac使用方法
 ```
 git clone https://github.com/project-i-contribute-xp/transparent_proxy.git
