@@ -41,10 +41,15 @@ pf相关资料如下：
 ## pf转发流量的处理
 macOS使用的bsd pf(package filter)可以将流量转发到某个端口，但是该端口接收到的数据与iptable转发的不一致，
 为iptable开发的ss-redir就不能使用了，幸运的是已经有人开发好了从pf转发数据到socket代理的转接程序：
+
 比如，python-proxy: https://github.com/qwj/python-proxy
+
 python-proxy支持将pf流量导向任意的socket的代理，这样任何实现了socket代理的协议都可以被用于透明代理，通用性更好，我们的macOS透明代理就使用了这个方案。
+
 我还发现rio开发了一个shadowsocks的分支版本，用go语言实现了pf转发数据的处理：
+
 https://github.com/riobard/go-shadowsocks2/blob/master/tcp_darwin.go
+
 这个方案的好处是性能可能比python好，问题是将pf转发逻辑与shadowsocks绑定在一起不够通用，如果找不到比python-proxy性能更好的方案，我考虑参照rio的实现，做一个go语言版本的pf转发处理程序。
 
 ## 目前状态
