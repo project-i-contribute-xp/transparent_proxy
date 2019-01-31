@@ -58,6 +58,11 @@ https://github.com/riobard/go-shadowsocks2/blob/master/tcp_darwin.go
 
 这个方案的好处是性能可能比python好，问题是将pf转发逻辑与shadowsocks绑定在一起不够通用，如果找不到比python-proxy性能更好的方案，我考虑参照rio的实现，做一个go语言版本的pf转发处理程序。
 
+## tun/tap方案
+可以将pf转发到tun（虚拟网卡）上，再通过tun2socks重定向到socks代理。
+tun技术看上去很高级，可以像管道一样实现网络包的修饰处理（比如一个tun实现混淆协议，一个tun实现vpn协议）。
+有时间可以研究下怎么替代pproxy。
+
 ## 目前状态
 - 自动安装docker脚本
    - (done）linux（ubuntu）
@@ -79,4 +84,5 @@ https://github.com/riobard/go-shadowsocks2/blob/master/tcp_darwin.go
 
 ## 参考项目
 - https://github.com/icymind/VRouter
-
+- https://github.com/yinghuocho/gotun2socks
+- https://github.com/songgao/water
