@@ -1,0 +1,38 @@
+{
+    "configs": [
+        {
+            "remarks": "first server",
+            "group": "test",
+            "server": "server_address",
+            "server_port": 123456,
+            "password": "password",
+            "method": "method",
+            "protocol": "protocol",
+            "obfs": "obfs",
+            "obfsparam": "obfsparam",
+            "remarks_base64": "remark",
+            "tcp_over_udp": false,
+            "udp_over_tcp": false,
+            "protocolparam": "",
+            "obfs_udp": false,
+            "enable": true
+        },
+        {
+            "remarks": "second server",
+            "group": "test",
+            "server": "server_address",
+            "server_port": 123456,
+            "password": "password",
+            "method": "method",
+            "protocol": "protocol",
+            "obfs": "obfs",
+            "obfsparam": "obfsparam",
+            "remarks_base64": "remark",
+            "tcp_over_udp": false,
+            "udp_over_tcp": false,
+            "protocolparam": "",
+            "obfs_udp": false,
+            "enable": true
+        }
+    ]
+}
