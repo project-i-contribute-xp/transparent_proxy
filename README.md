@@ -65,6 +65,16 @@ tun技术看上去很高级，可以像管道一样实现网络包的修饰处�
 
 有时间可以研究下怎么替代pproxy。
 
+## mac下的shadowsocks客户端选择
+brew的package库里有以下两个组件：
+
+1. https://formulae.brew.sh/formula/shadowsocks-libev
+2. https://formulae.brew.sh/formula/simple-obfs
+
+我理解shadowsocksr的不同只是加上了混淆插件，有空可以研究下怎么用这两个配置出一个可以用的shadowsocksr客户端。
+
+这样docker编译ss-local就不需要了。
+
 ## 目前状态
 - 自动安装docker脚本
    - (done）linux（ubuntu）
