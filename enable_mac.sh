@@ -6,5 +6,5 @@ cd ./internal
 ./generate_config.sh ./gui-config.json
 ./choose_server.sh
 ./startup_shadowsocks.sh
-./enable_forward_mac.sh
+./enable_forward_mac.sh $(cat ./config.json | jq .server_port)
 ./startup_pproxy.sh
