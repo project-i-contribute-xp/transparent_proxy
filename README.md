@@ -60,7 +60,9 @@ https://github.com/riobard/go-shadowsocks2/blob/master/tcp_darwin.go
 
 ## tun/tap方案
 可以将pf转发到tun（虚拟网卡）上，再通过tun2socks重定向到socks代理。
+
 tun技术看上去很高级，可以像管道一样实现网络包的修饰处理（比如一个tun实现混淆协议，一个tun实现vpn协议）。
+
 有时间可以研究下怎么替代pproxy。
 
 ## 目前状态
