@@ -16,9 +16,10 @@
 ```
 git clone https://github.com/project-i-contribute-xp/transparent_proxy.git
 cd transparent_proxy
-将配置文件gui-config.json复制到internal目录下
-./install_dependence_on_mac.sh
-./enable_mac.sh
+./install_dependence_on_mac.sh（首次运行）
+将配置文件gui-config.json复制到internal目录下（格式请参照gui-config.sample.json）
+./enable_mac.sh（会从gui-config.json中读取出所有服务器列表，提供给用户选择）
+./disable_mac.sh（关闭全局代理，路由表的修改是临时的，重启mac应该也会关闭全局代理路由配置）
 ```
 
 ## mac上的路由表修改
